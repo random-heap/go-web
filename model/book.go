@@ -10,4 +10,3 @@ type Book struct {
 	Stock   int
 	ImgPath string
 }
-
