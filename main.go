@@ -1,6 +1,9 @@
 package main
 
-import "net/http"
+import (
+	"go-web/utils"
+	"net/http"
+)
 
 func main() {
 
@@ -9,5 +12,8 @@ func main() {
 	//直接去html页面
 	http.Handle("/pages/", http.StripPrefix("/pages/", http.FileServer(http.Dir("views/pages"))))
 
+	utils.Info.Println("server starting at http://localhost:8080")
+
+	utils.Error.Fatal(http.ListenAndServe(":8080", nil))
 
 }
